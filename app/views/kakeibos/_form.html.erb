@@ -1,0 +1,19 @@
+<%= form_with model:@kakeibo, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "家計簿名" %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <div class="radio-inline">
+    <%= f.label :is_kakeibo_status, 'ガチャ家計簿', value: 1 %>
+    <%= f.radio_button :is_kakeibo_status, '1' %>
+    </div>
+    <div class="radio-inline">
+      <%= f.label :is_kakeibo_status, 'その他家計簿', value: 0 %>
+      <%= f.radio_button :is_kakeibo_status, '0' %><br>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.submit "登録" %>
+  </div>
+<% end %>

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_10_12_070126) do
 
   create_table "gacha_kakeibos", force: :cascade do |t|
-    t.integer "users_id", null: false
+    t.integer "user_id", null: false
     t.integer "kakeibos_id", null: false
     t.string "object", null: false
     t.integer "billing_amount", null: false
@@ -29,14 +29,15 @@ ActiveRecord::Schema.define(version: 2021_10_12_070126) do
   end
 
   create_table "kakeibos", force: :cascade do |t|
-    t.integer "users_id", null: false
+    t.integer "user_id", null: false
     t.string "name", null: false
+    t.boolean "is_kakeibo_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "other_kakeibos", force: :cascade do |t|
-    t.integer "users_id", null: false
+    t.integer "user_id", null: false
     t.integer "kakeibos_id", null: false
     t.string "object", null: false
     t.integer "billing_amount", null: false

@@ -1,0 +1,24 @@
+ <div class="table-responsive">
+   <table class="table table-hover">
+    <thead>
+     <tr>
+      <th></th>
+      <th>家計簿名</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <% @kakeibos.each do |kakeibo| %>
+       <th></th>
+       <td>
+        <% if kakeibo.is_kakeibo_status == true %>
+          <%= link_to kakeibo.name, gacha_kakeibo_path(kakeibo) %>
+        <% else %>
+          <%= link_to kakeibo.name, other_kakeibo_path(kakeibo) %>
+        <% end %>
+       </td>
+     </tr>
+      <% end %>
+    </tbody>
+   </table>
+ </div>

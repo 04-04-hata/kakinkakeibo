@@ -1,0 +1,55 @@
+<div class="gachaform">
+  <%= form_with model:@gacha_kakeibo, local: true do |f| %>
+  記入する家計簿を選択してください
+  <%= f.collection_select :id, @kakeibo, :id, :name, include_blank: "選択してください" %>
+  <div class="form-group">
+    <%= f.label :object, "目的のもの" %>
+    <%= f.text_field :object, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :billing_amount, "課金額" %>
+    <%= f.text_field :billing_amount, :placeholder => "金額を半角数字で入力(課金をしていない場合は0と入力)" , class: 'form-control' %>
+  </div>
+  <div class="form-group">
+     ガチャを回した回数(半角数字で入力、ガチャを回していない場合は0と入力)<br>
+    <%= f.label :single_gacha, "単発" %>
+    <%= f.text_field :single_gacha, :placeholder => '回', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ten_combo_gacha, "10連" %>
+    <%= f.text_field :ten_combo_gacha, :placeholder => '回', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :total, "合計" %>
+    <%= f.text_field :total, :placeholder => '回', class: 'form-control' %>
+  </div>
+  <div id="is_result_status">
+    <p>結果</p>
+    <label><input type="radio" name="is_result_status" value = "1"  onclick="checkAnswer(this)">当選</label>
+    <label><input type="radio" name="is_result_status" value = "0"  onclick="checkAnswer(this)">落選</label>
+  </div>
+  <div id="winning_count">
+    <p>
+      結果で当選を選ばれた方に質問です。<br>
+      何回当選されましたか。
+    </p>
+    <label><input type="radio" name="winning_count" value = "1" id="winning_count_one">一回</label>
+    <label><input type="radio" name="winning_count" value = "2" id="winning_count_two">二回</label>
+    <label><input type="radio" name="winning_count" value = "3" id="winning_count_three">三回</label>
+    <label><input type="radio" name="winning_count" value = "4" id="winning_count_four">四回</label>
+    <label><input type="radio" name="winning_count" value = "5" id="winning_count_five_tims_or_more">五回以上</label>
+  </div>
+  <div class="form-group">
+    <%= f.label :billing_item, "消費した課金アイテムの数" %>
+    <%= f.text_field :billing_item, :placeholder => '個', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :remarks, "備考" %>
+    <%= f.text_field :remarks, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "記述" %>
+  </div>
+  <% end %>
+</div>
+

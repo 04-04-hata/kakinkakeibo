@@ -2,7 +2,7 @@ class CreateGachaKakeibos < ActiveRecord::Migration[5.2]
   def change
     create_table :gacha_kakeibos do |t|
       
-      t.integer :users_id, null: false #ユーザーのid
+      t.integer :user_id, null: false #ユーザーのid
       t.integer :kakeibos_id, null: false #家計簿のid
       t.string  :object, null: false #目的の物
       t.integer :billing_amount, null: false #課金額
