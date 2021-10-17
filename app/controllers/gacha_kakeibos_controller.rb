@@ -39,7 +39,12 @@ class GachaKakeibosController < ApplicationController
   end
 
   def destroy
-    
+    @gacha_kakeibo = GachaKakeibo.find(params[:id])
+    if @gacha_kakeibo.destroy
+      redirect_to gacha_kakeibos_path
+    else
+      render :show
+    end
   end
 
   def gacha_kakeibo_data

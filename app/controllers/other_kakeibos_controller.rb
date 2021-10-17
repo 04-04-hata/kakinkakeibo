@@ -22,8 +22,7 @@ class OtherKakeibosController < ApplicationController
   end
 
   def show
-    #binding.pry
-    @other_kakeibo = Otherkakeibo.find(params[:id])
+    @other_kakeibo = OtherKakeibo.find(params[:id])
   end
 
   def edit
@@ -40,7 +39,12 @@ class OtherKakeibosController < ApplicationController
   end
 
   def destroy
-
+    @other_kakeibo = OtherKakeibo.find(params[:id])
+    if @other_kakeibo.destroy
+      redirect_to other_kakeibos_path
+    else
+      render :show
+    end
   end
 
   def other_kakeibo_data
