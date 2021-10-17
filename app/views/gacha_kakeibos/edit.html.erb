@@ -1,7 +1,7 @@
+<h1>ガチャ家計簿訂正</h1>
+
 <div class="gachaform">
   <%= form_with model:@gacha_kakeibo, local: true do |f| %>
-    記入する家計簿を選択してください
-    <%= f.collection_select :kakeibo_id, @kakeibo, :id, :name, include_blank: "選択してください" %>
     <div class="form-group">
       <%= f.label :object, "目的のもの" %>
       <%= f.text_field :object, class: 'form-control' %>
@@ -53,4 +53,3 @@
     </div>
   <% end %>
 </div>
-

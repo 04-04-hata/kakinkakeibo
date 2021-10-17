@@ -9,8 +9,9 @@ class GachaKakeibosController < ApplicationController
     @gacha_kakeibo = GachaKakeibo.new(gacha_kakeibo_params)
     @gacha_kakeibo.user_id = current_user.id
     if @gacha_kakeibo.save
-      redirect_to gacha_kakeibo_path(kakeibos.id)
+      redirect_to gacha_kakeibo_path(@gacha_kakeibo.id)
     else
+      @kakeibo = Kakeibo.where(is_kakeibo_status: 1)
       render :new
     end
   end
@@ -24,21 +25,31 @@ class GachaKakeibosController < ApplicationController
   end
 
   def edit
-
+    @gacha_kakeibo = GachaKakeibo.find(params[:id])
   end
 
   def update
+    @gacha_kakeibo = GachaKakeibo.find(params[:id])
+    if @gacha_kakeibo.update(gacha_kakeibo_params)
+      redirect_to gacha_kakeibos_path
+    else
+      render :edit
+    end
 
   end
 
   def destroy
+    
+  end
 
+  def gacha_kakeibo_data
+    @gacha_kakeibos = GachaKakeibo.where(kakeibo_id: params[:kakeibo_id])
   end
 
   private
 
   def gacha_kakeibo_params
-    params.require(:gacha_kakeibo).permit(:object,:billing_amount,:single_gacha,:ten_combo_gacha,:total,:is_result_status,:winning_count,:billing_item,:remarks)
+    params.require(:gacha_kakeibo).permit(:kakeibo_id,:object,:billing_amount,:single_gacha,:ten_combo_gacha,:total,:is_result_status,:winning_count,:billing_item,:remarks)
   end
 
 end

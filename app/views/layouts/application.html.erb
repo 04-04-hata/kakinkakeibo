@@ -12,6 +12,12 @@
   <body>
     <% if user_signed_in? %>
       <li>
+        <%= link_to "その他家計簿", other_kakeibos_path(current_user) %>
+      </li>
+      <li>
+        <%= link_to "ガチャ家計簿", gacha_kakeibos_path(current_user) %>
+      </li>
+      <li>
         <%= link_to "その他家計簿記述", new_other_kakeibo_path %>
       </li>
       <li>

@@ -1,7 +1,7 @@
+<h1>その他家計簿データ修正</h1>
+
 <div class="otherform">
   <%= form_with model:@other_kakeibo, local: true do |f| %>
-    記入する家計簿を選択してください
-    <%= f.collection_select :kakeibo_id, @kakeibo, :id, :name, include_blank: "選択してください" %>
 
     <div class="form-group">
       <%= f.label :object, "目的のもの" %>

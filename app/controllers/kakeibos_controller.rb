@@ -27,10 +27,16 @@ class KakeibosController < ApplicationController
   end
 
   def edit
-
+    @kakeibo = Kakeibo.find(params[:id])
   end
 
   def update
+    @kakeibo = Kakeibo.find(params[:id])
+    if @kakeibo.update(kakeibo_params)
+      redirect_to kakeibos_path
+    else
+      render :edit
+    end
 
   end
 

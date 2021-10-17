@@ -4,6 +4,7 @@
      <tr>
       <th></th>
       <th>家計簿名</th>
+      <th></th>
      </tr>
     </thead>
     <tbody>
@@ -12,11 +13,12 @@
        <th></th>
        <td>
         <% if kakeibo.is_kakeibo_status == true %>
-          <%= link_to kakeibo.name, gacha_kakeibo_path(kakeibo) %>
+          <%= link_to kakeibo.name, gacha_kakeibo_data_path(kakeibo) %>
         <% else %>
-          <%= link_to kakeibo.name, other_kakeibo_path(kakeibo) %>
+          <%= link_to kakeibo.name, other_kakeibo_data_path(kakeibo) %>
         <% end %>
        </td>
+       <td><%= link_to '家計簿名修正', edit_kakeibo_path(kakeibo) %></td>
      </tr>
       <% end %>
     </tbody>
