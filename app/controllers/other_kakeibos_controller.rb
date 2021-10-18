@@ -11,7 +11,7 @@ class OtherKakeibosController < ApplicationController
     if @other_kakeibo.save
       redirect_to other_kakeibo_path(@other_kakeibo.id)
     else
-      @kakeibo = Kakeibo.Where(is_kakeibo_status: 0)
+      @kakeibo = Kakeibo.where(is_kakeibo_status: 0)
       render :new
     end
 

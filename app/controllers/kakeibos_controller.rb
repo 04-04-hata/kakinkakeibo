@@ -24,6 +24,7 @@ class KakeibosController < ApplicationController
   end
 
   def show
+    @kakeibo = Kakeibo.find(params[:id])
   end
 
   def edit
@@ -37,10 +38,6 @@ class KakeibosController < ApplicationController
     else
       render :edit
     end
-
-  end
-
-  def destroy
 
   end
 

@@ -2,6 +2,7 @@
 
 <div class="gachaform">
   <%= form_with model:@gacha_kakeibo, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
     <div class="form-group">
       <%= f.label :object, "目的のもの" %>
       <%= f.text_field :object, class: 'form-control' %>

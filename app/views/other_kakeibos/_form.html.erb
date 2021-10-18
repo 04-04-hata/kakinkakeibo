@@ -1,5 +1,6 @@
 <div class="otherform">
   <%= form_with model:@other_kakeibo, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
     記入する家計簿を選択してください
     <%= f.collection_select :kakeibo_id, @kakeibo, :id, :name, include_blank: "選択してください" %>
 

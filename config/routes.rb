@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: "homes#top"
 
-  resources :kakeibos
+  resources :kakeibos, only:[:new,:create,:show,:edit,:update,:index]
   resources :gacha_kakeibos
   get 'gacha_kakeibos/:kakeibo_id/gacha_kakeibo_data', :to => 'gacha_kakeibos#gacha_kakeibo_data', as: 'gacha_kakeibo_data'
   resources :other_kakeibos

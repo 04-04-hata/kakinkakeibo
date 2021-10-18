@@ -4,6 +4,7 @@
      <tr>
       <th></th>
       <th>家計簿名</th>
+      <th>家計簿の種類</th>
       <th></th>
      </tr>
     </thead>
@@ -18,7 +19,14 @@
           <%= link_to kakeibo.name, other_kakeibo_data_path(kakeibo) %>
         <% end %>
        </td>
-       <td><%= link_to '家計簿名修正', edit_kakeibo_path(kakeibo) %></td>
+       <td>
+        <% if kakeibo.is_kakeibo_status == true %>
+          <%= 'ガチャ家計簿' %>
+        <% else %>
+          <%= 'その他家計簿' %>
+        <% end %>
+        </td>
+       <td><%= link_to '家計簿名変更', edit_kakeibo_path(kakeibo) %></td>
      </tr>
       <% end %>
     </tbody>

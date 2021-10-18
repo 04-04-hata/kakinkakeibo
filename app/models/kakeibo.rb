@@ -4,5 +4,6 @@ class Kakeibo < ApplicationRecord
   has_many :gachakakeibos, dependent: :destroy
   has_many :otherkakeibos, dependent: :destroy
 
-
+  validates :name, presence:true
+  validates :is_kakeibo_status, inclusion:{in: [true,false]}
 end
