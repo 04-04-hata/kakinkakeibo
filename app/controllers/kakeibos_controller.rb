@@ -21,10 +21,13 @@ class KakeibosController < ApplicationController
 
   def index
     @kakeibos = Kakeibo.all
+    @gacha_billing_amount = GachaKakeibo.sum(:billing_amount)
+    @other_billing_amount = OtherKakeibo.sum(:billing_amount)
   end
 
   def show
     @kakeibo = Kakeibo.find(params[:id])
+
   end
 
   def edit

@@ -18,6 +18,12 @@ class GachaKakeibosController < ApplicationController
 
   def index
     @gacha_kakeibos = GachaKakeibo.all
+    @billing_amount = GachaKakeibo.sum(:billing_amount)
+    @billing_ave = GachaKakeibo.where.not(billing_amount: 0).average(:billing_amount).floor
+    @total_ave = GachaKakeibo.average(:total).floor
+    @billing_item_ave = GachaKakeibo.average(:billing_item).floor
+    @result_total_ave = GachaKakeibo.where(is_result_status: 1).average(:total).floor
+    @result_billing_item_ave = GachaKakeibo.where(is_result_status: 1).average(:billing_item).floor
   end
 
   def show

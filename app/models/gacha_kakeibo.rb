@@ -11,4 +11,6 @@ class GachaKakeibo < ApplicationRecord
   validates :is_result_status, inclusion: {in:[true,false]}
   validates :winning_count, presence: true
   validates :billing_item, presence: true
+  
+  
 end

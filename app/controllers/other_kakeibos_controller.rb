@@ -19,6 +19,8 @@ class OtherKakeibosController < ApplicationController
 
   def index
     @other_kakeibos = OtherKakeibo.all
+    @billing_amount = OtherKakeibo.sum(:billing_amount)
+    @billing_ave = OtherKakeibo.average(:billing_amount).floor
   end
 
   def show
