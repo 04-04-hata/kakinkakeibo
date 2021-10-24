@@ -1,24 +1,7 @@
-<h1>その他家計簿</h1>
+<div class="kakinkakeibo">
 
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th></th>
-        <th>目的のもの</th>
-        <th>課金額</th>
-        <th>備考</th>
-      </tr>
-    </thead>
-    <tbody>
-     <% @other_kakeibos.each do |other_kakeibo| %>
-      <tr>
-        <th></th>
-        <td><%= other_kakeibo.object %></td>
-        <td><%= other_kakeibo.billing_amount %>円</td>
-        <td><%= other_kakeibo.remarks %></td>
-      </tr>
-     <% end %>
-    </tbody>
-  </table>
+  <h1>その他家計簿</h1>
+  
+  <%= render 'other_kakeibos/listindex', other_kakeibos: @other_kakeibos %>
+  
 </div>

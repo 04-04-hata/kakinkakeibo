@@ -1,0 +1,43 @@
+<div class="list">
+  <ul class="list_path">
+  <% if user_signed_in? %>
+    <li class="kakeibo">
+      <%= link_to "その他家計簿", other_kakeibos_path %>
+    </li>
+    <li class="kakeibo">
+      <%= link_to "ガチャ家計簿", gacha_kakeibos_path %>
+    </li>
+    <li class="kakeibo">
+      <%= link_to "その他家計簿記述", new_other_kakeibo_path %>
+    </li>
+    <li class="kakeibo">
+      <%= link_to "ガチャ家計簿記述", new_gacha_kakeibo_path %>
+    </li>
+    <li class="kakeibo">
+      <%= link_to "家計簿一覧", kakeibos_path %>
+    </li>
+    <li class="kakeibo">
+      <%= link_to "家計簿登録", new_kakeibo_path %>
+    </li>
+  <% else %>
+    <li class="kakeibo">
+        <%= link_to "その他家計簿", root_path %>
+      </li>
+      <li class="kakeibo">
+        <%= link_to "ガチャ家計簿", root_path %>
+      </li>
+      <li class="kakeibo">
+        <%= link_to "その他家計簿記述", root_path %>
+      </li>
+      <li class="kakeibo">
+        <%= link_to "ガチャ家計簿記述", root_path %>
+      </li>
+      <li class="kakeibo">
+        <%= link_to "家計簿一覧", root_path %>
+      </li>
+      <li class="kakeibo">
+        <%= link_to "家計簿登録", root_path %>
+      </li>
+  <% end %>
+  </ul>
+</div>

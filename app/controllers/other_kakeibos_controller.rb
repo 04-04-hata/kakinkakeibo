@@ -18,9 +18,14 @@ class OtherKakeibosController < ApplicationController
   end
 
   def index
-    @other_kakeibos = OtherKakeibo.all
-    @billing_amount = OtherKakeibo.sum(:billing_amount)
-    @billing_ave = OtherKakeibo.average(:billing_amount).floor
+    @other_kakeibos = OtherKakeibo.where(user_id: current_user.id)
+    @billing_amount = OtherKakeibo.where(user_id: current_user.id).sum(:billing_amount)
+    @billing_ave = 0 #平均課金額(無課金除く)
+
+    if 0 < @other_kakeibos.sum(:billing_amount)
+      @billing_ave = OtherKakeibo.where.not(billing_amount: 0).average(:billing_amount).floor
+    end
+
   end
 
   def show
@@ -51,6 +56,13 @@ class OtherKakeibosController < ApplicationController
 
   def other_kakeibo_data
     @other_kakeibos = OtherKakeibo.where(kakeibo_id: params[:kakeibo_id])
+    @billing_amount = OtherKakeibo.where(kakeibo_id: params[:kakeibo_id]).sum(:billing_amount)
+    @billing_ave = 0 #平均課金額(無課金除く)
+
+    if 0 < @other_kakeibos.sum(:billing_amount)
+      @billing_ave = OtherKakeibo.where.not(billing_amount: 0).average(:billing_amount).floor
+    end
+
   end
 
   private

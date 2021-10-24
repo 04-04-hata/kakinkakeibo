@@ -20,9 +20,9 @@ class KakeibosController < ApplicationController
   end
 
   def index
-    @kakeibos = Kakeibo.all
-    @gacha_billing_amount = GachaKakeibo.sum(:billing_amount)
-    @other_billing_amount = OtherKakeibo.sum(:billing_amount)
+    @kakeibos = Kakeibo.where(user_id: current_user.id)
+    @gacha_billing_amount = GachaKakeibo.where(user_id: current_user.id).sum(:billing_amount)
+    @other_billing_amount = OtherKakeibo.where(user_id: current_user.id).sum(:billing_amount)
   end
 
   def show

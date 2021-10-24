@@ -1,34 +1,38 @@
- <div class="table-responsive">
-   <table class="table table-hover">
-    <thead>
-     <tr>
-      <th></th>
-      <th>家計簿名</th>
-      <th>家計簿の種類</th>
-      <th></th>
-     </tr>
-    </thead>
-    <tbody>
-     <tr>
-      <% @kakeibos.each do |kakeibo| %>
+<% if @kakeibos.size == 0 %>
+ <p>家計簿が登録されていません</p>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-hover">
+     <thead>
+      <tr>
        <th></th>
-       <td>
-        <% if kakeibo.is_kakeibo_status == true %>
-          <%= link_to kakeibo.name, gacha_kakeibo_data_path(kakeibo) %>
-        <% else %>
-          <%= link_to kakeibo.name, other_kakeibo_data_path(kakeibo) %>
-        <% end %>
-       </td>
-       <td>
-        <% if kakeibo.is_kakeibo_status == true %>
-          <%= 'ガチャ家計簿' %>
-        <% else %>
-          <%= 'その他家計簿' %>
-        <% end %>
+       <th>家計簿名</th>
+       <th>家計簿の種類</th>
+       <th></th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <% @kakeibos.each do |kakeibo| %>
+        <th></th>
+        <td>
+         <% if kakeibo.is_kakeibo_status == true %>
+           <%= link_to kakeibo.name, gacha_kakeibo_data_path(kakeibo) %>
+         <% else %>
+           <%= link_to kakeibo.name, other_kakeibo_data_path(kakeibo) %>
+         <% end %>
         </td>
-       <td><%= link_to '家計簿名変更', edit_kakeibo_path(kakeibo) %></td>
-     </tr>
-      <% end %>
-    </tbody>
-   </table>
- </div>
+        <td>
+         <% if kakeibo.is_kakeibo_status == true %>
+           <%= 'ガチャ家計簿' %>
+         <% else %>
+           <%= 'その他家計簿' %>
+         <% end %>
+         </td>
+        <td><%= link_to '家計簿名変更', edit_kakeibo_path(kakeibo) %></td>
+      </tr>
+       <% end %>
+     </tbody>
+    </table>
+  </div>
+<% end %>

@@ -1,0 +1,81 @@
+<div class="kakinkakeibo">
+
+  <h1>検索結果</h1>
+
+  <% if @model == "gachakakeibo" %>
+    <% if @datas.size == 0 %>
+       <p>検索結果はありません</p>
+    <% else %>
+      <div class="table-responsive">
+        <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th></th>
+              <th>目的のもの</th>
+              <th>課金額</th>
+              <th>単発</th>
+              <th>10連</th>
+              <th>合計</th>
+              <th>結果</th>
+              <th>当選回数</th>
+              <th>消費した課金アイテムの数</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+           <tbody>
+             <tr>
+              <% @datas.each do |gachakakeibo| %>
+               <th></th>
+               <td><%= link_to gachakakeibo.object, gacha_kakeibo_path(gachakakeibo) %></td>
+               <td><%= gachakakeibo.billing_amount %>円</td>
+               <td><%= gachakakeibo.single_gacha %>回</td>
+               <td><%= gachakakeibo.ten_combo_gacha %>回</td>
+               <td><%= gachakakeibo.total %>回</td>
+               <td>
+                 <% if gachakakeibo.is_result_status == true %>
+                   当選
+                 <% else %>
+                   落選
+                 <% end %>
+               </td>
+               <td><%= gachakakeibo.winning_count %></td>
+               <td><%= gachakakeibo.billing_item %>個</td>
+               <td><%= gachakakeibo.remarks %></td>
+             </tr>
+            <% end %>
+           </tbody>
+        </table>
+      <% end %>
+    </div>
+
+
+  <% elsif @model == "otherkakeibo" %>
+    <% if @datas.size == 0 %>
+      <p>検索結果はありません</p>
+    <% else %>
+     <div class="table-responsive">
+       <table class="table table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>目的のもの</th>
+              <th>課金額</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+           <% @datas.each do |otherkakeibo| %>
+            <tr>
+              <th></th>
+              <td><%= link_to otherkakeibo.object, other_kakeibo_path(otherkakeibo) %></td>
+              <td><%= otherkakeibo.billing_amount %></td>
+              <td><%= otherkakeibo.remarks %></td>
+            </tr>
+           <% end %>
+          </tbody>
+        </table>
+      </div>
+  
+    <% end %>
+  </div>
+<% end %>

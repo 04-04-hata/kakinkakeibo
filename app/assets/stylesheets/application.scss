@@ -17,10 +17,71 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+html, body, #content, #main{
+  height: 100%;
+}
+
+#content{
+  width: 100%;
+  overflow: hidden;
+}
+
+#main{
+  width: 100%;
+  display:flex;
+}
+//ここから先ログイン画面の設定
+h2{
+  margin-top: 50px;
+}
+
+#new_user{
+  margin-top: 100px;
+}
+
+//ここから先navbarの設定
 .navbar-light{
   background-color:plum;
+  height:50px;
 }
 .navbar-light .navbar-toggler {
   border-color: rgba(0,0,0,0);
+  text-align: right;
+}
+//navbarで左はサイトのタイトルリンク(課金家計簿)で、右はログイン関係のリンクやドロップダウンメニューで分けている
+.left{
+  float:left;
 }
 
+.right{
+  float:right;
+  display:flex;
+}
+
+.user_name{
+  margin: 0 150px 0 10px;
+}
+
+//ログイン関係のリンク
+.traffic{
+  margin: 5px;
+}
+
+//ここから先サイドバーの設定
+.sidebar{
+  background-color: Indigo;
+  margin-top: 50px;
+  width: 250px;
+}
+
+.kakeibo{
+  list-style: none;
+  padding: 10px;
+  width: 200px;
+}
+
+//mainの子要素(deviseで用意されたページ以外のページ共通)
+.kakinkakeibo{
+  margin-top: 50px;
+  width: 100%;
+}

@@ -17,13 +17,34 @@ class GachaKakeibosController < ApplicationController
   end
 
   def index
-    @gacha_kakeibos = GachaKakeibo.all
-    @billing_amount = GachaKakeibo.sum(:billing_amount)
-    @billing_ave = GachaKakeibo.where.not(billing_amount: 0).average(:billing_amount).floor
-    @total_ave = GachaKakeibo.average(:total).floor
-    @billing_item_ave = GachaKakeibo.average(:billing_item).floor
-    @result_total_ave = GachaKakeibo.where(is_result_status: 1).average(:total).floor
-    @result_billing_item_ave = GachaKakeibo.where(is_result_status: 1).average(:billing_item).floor
+    @gacha_kakeibos = GachaKakeibo.where(user_id: current_user.id)  #全てのガチャ家計簿のデータを取ってくる
+    @billing_amount = GachaKakeibo.where(user_id: current_user.id).sum(:billing_amount) #総合課金額
+    @billing_ave = 0 #@billing_aveが0の時にviewに表示する
+    @total_ave = 0 #@total_aveが0の時にviewに表示する
+    @billing_item_ave = 0 #@billing_item_aveが0の時にviewに表示する
+    @result_total_ave = 0 #@result_total_aveが0の時にviewに表示する
+    @result_billing_item_ave = 0 #@result_billing_item_aveが0の時にviewに表示する
+
+    if 0 < @gacha_kakeibos.sum(:total)
+      @total_ave = @gacha_kakeibos.average(:total).floor #総合平均ガチャ回数
+    end
+
+    if 0 < @gacha_kakeibos.sum(:billing_amount)
+      @billing_ave = @gacha_kakeibos.where.not(billing_amount: 0).average(:billing_amount).floor #総合平均課金額(無課金除く)
+    end
+
+    if 0 < @gacha_kakeibos.sum(:billing_item)
+      @billing_item_ave = @gacha_kakeibos.average(:billing_item).floor #総合平均課金アイテム消費数
+    end
+
+    if 0 < GachaKakeibo.where(user_id: current_user.id, is_result_status: 1).sum(:total)
+      @result_total_ave = GachaKakeibo.where(user_id: current_user.id, is_result_status: 1).average(:total).floor #総合平均ガチャ回数(当選時)
+    end
+
+    if 0 < GachaKakeibo.where(user_id: current_user.id, is_result_status: 1).sum(:billing_item) #総合平均ガチャ回数(当選時)
+      @result_billing_item_ave = GachaKakeibo.where(user_id: current_user.id, is_result_status: 1).average(:billing_item).floor #総合平均課金アイテム消費数(当選時)
+    end
+
   end
 
   def show
@@ -54,7 +75,34 @@ class GachaKakeibosController < ApplicationController
   end
 
   def gacha_kakeibo_data
-    @gacha_kakeibos = GachaKakeibo.where(kakeibo_id: params[:kakeibo_id])
+    @gacha_kakeibos = GachaKakeibo.where(kakeibo_id: params[:kakeibo_id]) #ガチャ家計簿内の家計簿を個別に取ってくる
+    @billing_amount = GachaKakeibo.where(kakeibo_id: params[:kakeibo_id]).sum(:billing_amount) #総合課金額
+    @billing_ave = 0 #@billing_aveが0の時にviewに表示する
+    @total_ave = 0 #@total_aveが0の時にviewに表示する
+    @billing_item_ave = 0 #@billing_item_aveが0の時にviewに表示する
+    @result_total_ave = 0 #@result_total_aveが0の時にviewに表示する
+    @result_billing_item_ave = 0 #@result_billing_item_aveが0の時にviewに表示する
+
+    if 0 < @gacha_kakeibos.sum(:total)
+      @total_ave = @gacha_kakeibos.average(:total).floor #総合平均ガチャ回数
+    end
+
+    if 0 < @gacha_kakeibos.sum(:billing_amount)
+      @billing_ave = @gacha_kakeibos.where.not(billing_amount: 0).average(:billing_amount).floor #総合平均課金額(無課金除く)
+    end
+
+    if 0 < @gacha_kakeibos.sum(:billing_item)
+      @billing_item_ave = @gacha_kakeibos.average(:billing_item).floor #総合平均課金アイテム消費数
+    end
+
+    if 0 < GachaKakeibo.where(kakeibo_id: params[:kakeibo_id], is_result_status: 1).sum(:total)
+      @result_total_ave = GachaKakeibo.where(kakeibo_id: params[:kakeibo_id], is_result_status: 1).average(:total).floor #総合平均ガチャ回数(当選時)
+    end
+
+    if 0 < GachaKakeibo.where(kakeibo_id: params[:kakeibo_id], is_result_status: 1).sum(:billing_item) #総合平均ガチャ回数(当選時)
+      @result_billing_item_ave = GachaKakeibo.where(kakeibo_id: params[:kakeibo_id], is_result_status: 1).average(:billing_item).floor #総合平均課金アイテム消費数(当選時)
+    end
+
   end
 
   private

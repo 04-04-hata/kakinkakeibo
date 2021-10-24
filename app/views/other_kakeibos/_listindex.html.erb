@@ -1,41 +1,50 @@
-<div class="table-responsive">
-  <table class="table-condensed">
-    <thead>
-      <tr>
-        <th></th>
-        <th>総課金額</th>
-        <th>平均課金額</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th></th>
-        <td><%= @billing_amount %> 円</td>
-        <td><%= @billing_ave %> 円</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+<% if @other_kakeibos.size == 0 %>
+  <p>家計簿が記述されていません</p>
+<% else %>
+  <div class="sum_and_avg">
+      <div class="table-responsive">
+        <table class="table-bordered">
+          <thead>
+            <tr>
+              <th></th>
+              <th>総課金額</th>
+              <th>平均課金額(無課金除く)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th></th>
+              <td><%= @billing_amount %> 円</td>
+              <td><%= @billing_ave %> 円</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th></th>
-        <th>目的のもの</th>
-        <th>課金額</th>
-        <th>備考</th>
-      </tr>
-    </thead>
-    <tbody>
-     <% @other_kakeibos.each do |other_kakeibo| %>
-      <tr>
-        <th></th>
-        <td><%= link_to other_kakeibo.object, other_kakeibo_path(other_kakeibo) %></td>
-        <td><%= other_kakeibo.billing_amount %></td>
-        <td><%= other_kakeibo.remarks %></td>
-      </tr>
-     <% end %>
-    </tbody>
-  </table>
-</div>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>目的のもの</th>
+            <th>家計簿名</th>
+            <th>課金額</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
+         <% @other_kakeibos.each do |other_kakeibo| %>
+          <tr>
+            <th></th>
+            <td><%= link_to other_kakeibo.object, other_kakeibo_path(other_kakeibo) %></td>
+            <td><%= other_kakeibo.kakeibo.name %></td>
+            <td><%= other_kakeibo.billing_amount %>円</td>
+            <td><%= other_kakeibo.remarks %></td>
+          </tr>
+         <% end %>
+        </tbody>
+      </table>
+    </div>
+<% end %>

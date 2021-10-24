@@ -1,67 +1,73 @@
-<div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th></th>
-        <th>総課金額</th>
-        <th>平均課金額(無課金除く)</th>
-        <th>平均ガチャ回数(総合)</th>
-        <th>平均課金アイテム消費数(総合)</th>
-        <th>平均ガチャ回数(当選時)</th>
-        <th>平均課金アイテム消費数(当選時)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th></th>
-        <td><%= @billing_amount %> 円</td>
-        <td><%= @billing_ave %> 円</td>
-        <td><%= @total_ave %> 回</td>
-        <td><%= @billing_item_ave %> 個</td>
-        <td><%= @result_total_ave %> 回</td>
-        <td><%= @result_billing_item_ave %> 個</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<% if @gacha_kakeibos.size == 0 %>
+  <p>家計簿が記述されていません</p>
+<% else %>
+  <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>総課金額</th>
+            <th>平均課金額(無課金除く)</th>
+            <th>平均ガチャ回数</th>
+            <th>平均課金アイテム消費数</th>
+            <th>平均ガチャ回数(当選時)</th>
+            <th>平均課金アイテム消費数(当選時)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th></th>
+            <td><%= @billing_amount %> 円</td>
+            <td><%= @billing_ave %></td>
+            <td><%= @total_ave %> 回</td>
+            <td><%= @billing_item_ave %> 個</td>
+            <td><%= @result_total_ave %> 回</td>
+            <td><%= @result_billing_item_ave %> 個</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
 
-<div class="table-responsive">
-  <table class="table table-striped" >
-    <thead>
-      <tr>
-        <th></th>
-        <th>目的のもの</th>
-        <th>課金額</th>
-        <th>単発</th>
-        <th>10連</th>
-        <th>合計</th>
-        <th>結果</th>
-        <th>当選回数</th>
-        <th>消費した課金アイテムの数</th>
-        <th>備考</th>
-      </tr>
-    </thead>
-     <tbody>
-       <tr>
-        <% @gacha_kakeibos.each do |gacha_kakeibo| %>
-         <th></th>
-         <td><%= link_to gacha_kakeibo.object, gacha_kakeibo_path(gacha_kakeibo) %></td>
-         <td><%= gacha_kakeibo.billing_amount %>円</td>
-         <td><%= gacha_kakeibo.single_gacha %>回</td>
-         <td><%= gacha_kakeibo.ten_combo_gacha %>回</td>
-         <td><%= gacha_kakeibo.total %>回</td>
-         <td>
-           <% if gacha_kakeibo.is_result_status == true %>
-             当選
-           <% else %>
-             落選
-           <% end %>
-         </td>
-         <td><%= gacha_kakeibo.winning_count %></td>
-         <td><%= gacha_kakeibo.billing_item %>個</td>
-         <td><%= gacha_kakeibo.remarks %></td>
-       </tr>
-      <% end %>
-     </tbody>
-  </table>
-</div>
+  <div class="table-responsive">
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th></th>
+          <th>目的のもの</th>
+          <th>家計簿名</th>
+          <th>課金額</th>
+          <th>単発</th>
+          <th>10連</th>
+          <th>合計</th>
+          <th>結果</th>
+          <th>当選回数</th>
+          <th>消費した課金アイテムの数</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+       <tbody>
+         <tr>
+          <% @gacha_kakeibos.each do |gacha_kakeibo| %>
+           <th></th>
+           <td><%= link_to gacha_kakeibo.object, gacha_kakeibo_path(gacha_kakeibo) %></td>
+           <td><%= gacha_kakeibo.kakeibo.name %></td>
+           <td><%= gacha_kakeibo.billing_amount %>円</td>
+           <td><%= gacha_kakeibo.single_gacha %>回</td>
+           <td><%= gacha_kakeibo.ten_combo_gacha %>回</td>
+           <td><%= gacha_kakeibo.total %>回</td>
+           <td>
+             <% if gacha_kakeibo.is_result_status == true %>
+               当選
+             <% else %>
+               落選
+             <% end %>
+           </td>
+           <td><%= gacha_kakeibo.winning_count %></td>
+           <td><%= gacha_kakeibo.billing_item %>個</td>
+           <td><%= gacha_kakeibo.remarks %></td>
+         </tr>
+        <% end %>
+       </tbody>
+    </table>
+  </div>
+<% end %>

@@ -1,56 +1,60 @@
-<h1>ガチャ家計簿訂正</h1>
+<div class="kakinkakeibo">
 
-<div class="gachaform">
-  <%= form_with model:@gacha_kakeibo, local: true do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
-    <div class="form-group">
-      <%= f.label :object, "目的のもの" %>
-      <%= f.text_field :object, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :billing_amount, "課金額" %>
-      <%= f.text_field :billing_amount, :placeholder => "金額を半角数字で入力(課金をしていない場合は0と入力)" , class: 'form-control' %>
-    </div>
-    <div class="form-group">
-       ガチャを回した回数(半角数字で入力、ガチャを回していない場合は0と入力)<br>
-      <%= f.label :single_gacha, "単発" %>
-      <%= f.text_field :single_gacha, :placeholder => '回', class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :ten_combo_gacha, "10連" %>
-      <%= f.text_field :ten_combo_gacha, :placeholder => '回', class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :total, "合計" %>
-      <%= f.text_field :total, :placeholder => '回', class: 'form-control' %>
-    </div>
-    <div id="is_result_status">
-      <p>結果</p>
-      <%= f.radio_button :is_result_status, true %>
-      <%= f.label :is_result_status, '当選',  value: true %>
-      <%= f.radio_button :is_result_status, false %>
-      <%= f.label :is_result_status, '落選', value: false %>
-    </div>
-    <div id="winning_count">
-      <p>
-        結果で当選を選ばれた方に質問です。<br>
-        何回当選されましたか。(半角数字で記入、当選回数が0回の場合は0と入力してください。)
-      </p>
+  <h1>ガチャ家計簿訂正</h1>
+
+  <div class="gachaform">
+    <%= form_with model:@gacha_kakeibo, local: true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group">
-      <%= f.label :winning_count, "当選回数" %>
-      <%= f.text_field :winning_count, :placeholder => '回', class: 'form-control' %>
+        <%= f.label :object, "目的のもの" %>
+        <%= f.text_field :object, class: 'form-control' %>
       </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :billing_item, "消費した課金アイテムの数" %>
-      <%= f.text_field :billing_item, :placeholder => '個', class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :remarks, "備考" %>
-      <%= f.text_field :remarks, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.submit "記述" %>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <%= f.label :billing_amount, "課金額" %>
+        <%= f.text_field :billing_amount, :placeholder => "金額を半角数字で入力(課金をしていない場合は0と入力)" , class: 'form-control' %>
+      </div>
+      <div class="form-group">
+         ガチャを回した回数(半角数字で入力、ガチャを回していない場合は0と入力)<br>
+        <%= f.label :single_gacha, "単発" %>
+        <%= f.text_field :single_gacha, :placeholder => '回', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :ten_combo_gacha, "10連" %>
+        <%= f.text_field :ten_combo_gacha, :placeholder => '回', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :total, "合計" %>
+        <%= f.text_field :total, :placeholder => '回', class: 'form-control' %>
+      </div>
+      <div id="is_result_status">
+        <p>結果</p>
+        <%= f.radio_button :is_result_status, true %>
+        <%= f.label :is_result_status, '当選',  value: true %>
+        <%= f.radio_button :is_result_status, false %>
+        <%= f.label :is_result_status, '落選', value: false %>
+      </div>
+      <div id="winning_count">
+        <p>
+          結果で当選を選ばれた方に質問です。<br>
+          何回当選されましたか。(半角数字で記入、当選回数が0回の場合は0と入力してください。)
+        </p>
+        <div class="form-group">
+        <%= f.label :winning_count, "当選回数" %>
+        <%= f.text_field :winning_count, :placeholder => '回', class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :billing_item, "消費した課金アイテムの数" %>
+        <%= f.text_field :billing_item, :placeholder => '個', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :remarks, "備考" %>
+        <%= f.text_field :remarks, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "記述" %>
+      </div>
+    <% end %>
+  </div>
+
 </div>

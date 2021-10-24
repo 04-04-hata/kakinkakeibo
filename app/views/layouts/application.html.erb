@@ -12,8 +12,13 @@
 
   <body>
     <%= render 'layouts/header' %>
-
-    <%= yield %>
-
+    <div id="content">
+      <div id="main">
+        <div class="sidebar">
+            <%= render 'layouts/sidebar' %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

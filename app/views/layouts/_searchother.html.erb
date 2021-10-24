@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>目的のもの</th>
+        <th>課金額</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @other_kakeibos.each do |other_kakeibo| %>
+      <tr>
+        <th></th>
+        <td><%= link_to other_kakeibo.object, other_kakeibo_path(other_kakeibo) %></td>
+        <td><%= other_kakeibo.billing_amount %></td>
+        <td><%= other_kakeibo.remarks %></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+</div>
