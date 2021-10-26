@@ -1,0 +1,56 @@
+<div class="billing_amount_ranks">
+  <h3>ガチャ家計簿　課金額ランキング</h3>
+  <% if @gacha_billing_amount_ranks.size == 0 %>
+    ランキングのデータがありません
+  <% else %>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>順位</th>
+            <th>目的のもの</th>
+            <th>課金額</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% @gacha_billing_amount_ranks.each.with_index(1) do |gachakakeibo, i| %>
+            <th>第<%= i  %>位</th>
+            <td><%= gachakakeibo.object %></td>
+            <td><%= gachakakeibo.billing_amount %></td>
+          </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
+<div class="total_desc">
+  <h3>ガチャ家計簿　ガチャを回した数ランキング(当選時)</h3>
+  <% if @total_desc.size == 0 %>
+    データがありません
+  <% else %>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>順位</th>
+            <th>目的のもの</th>
+            <th>ガチャを回した数</th>
+            <th>課金額</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% @total_desc.each.with_index(1) do |gachakakeibo, i| %>
+            <th>第<%= i  %>位</th>
+            <td><%= gachakakeibo.object %></td>
+            <td><%= gachakakeibo.total %></td>
+            <td><%= gachakakeibo.billing_amount %></td>
+          </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

@@ -26,4 +26,12 @@
      </tbody>
     </table>
   </div>
+  <div class="ranking">
+   <% if @kakeibo.is_kakeibo_status == true %>
+
+    <%= render 'kakeibos/gacharanking' %>
+   <% else %>
+    <%= render 'kakeibos/otherranking' %>
+   <% end %>
+  </div>
 </div>

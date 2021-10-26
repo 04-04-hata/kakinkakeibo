@@ -9,6 +9,7 @@
        <th>家計簿名</th>
        <th>家計簿の種類</th>
        <th></th>
+       <th></th>
       </tr>
      </thead>
      <tbody>
@@ -30,6 +31,7 @@
          <% end %>
          </td>
         <td><%= link_to '家計簿名変更', edit_kakeibo_path(kakeibo) %></td>
+        <td><%= link_to '家計簿ランキングを見る', kakeibo_path(kakeibo) %></td>
       </tr>
        <% end %>
      </tbody>

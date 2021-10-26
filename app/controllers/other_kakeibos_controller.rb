@@ -2,7 +2,7 @@ class OtherKakeibosController < ApplicationController
 
   def new
     @other_kakeibo = OtherKakeibo.new
-    @kakeibo = Kakeibo.where(is_kakeibo_status: 0)
+    @kakeibo = Kakeibo.where(is_kakeibo_status: 0, user_id: current_user.id)
   end
 
   def create

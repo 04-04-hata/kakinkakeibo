@@ -2,7 +2,7 @@ class GachaKakeibosController < ApplicationController
 
   def new
     @gacha_kakeibo = GachaKakeibo.new
-    @kakeibo = Kakeibo.where(is_kakeibo_status: 1)
+    @kakeibo = Kakeibo.where(is_kakeibo_status: 1, user_id: current_user.id)
   end
 
   def create
