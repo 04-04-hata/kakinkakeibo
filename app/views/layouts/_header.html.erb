@@ -7,10 +7,10 @@
     <div class="user_name">
       <%= current_user.name %>様
     </div>
-      <a class="traffic"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %></a>
+      <div class="logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %></div>
     <% else %>
-      <a class="traffic"><%= link_to 'ログイン', new_user_session_path %></a>
-      <a class="traffic"><%= link_to '新規登録', new_user_registration_path %></a>
+      <a class="login"><%= link_to 'ログイン', new_user_session_path %></a>
+      <a class="sign_in"><%= link_to '新規登録', new_user_registration_path %></a>
     <% end %>
     <% if user_signed_in? %>
         <div class="search">
@@ -34,6 +34,13 @@
           <button class="dropdown-item" type="button"><%= link_to "家計簿一覧", kakeibos_path %></button>
           <button class="dropdown-item" type="button"><%= link_to "家計簿登録", new_kakeibo_path %></button>
           <button class="dropdown-item" type="button"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %></button>
+          <div class="dropdown_search">
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+              目的の物を入力して下さい<%= f.text_field 'search[value]', :placeholder => "例:エレシュキガル" %>
+              <%= f.select 'search[model]', options_for_select({"ガチャ家計簿" => "gachakakeibo", "その他家計簿" => "otherkakeibo"}) %>
+              <%= f.submit :"検索" %>
+            <% end %>
+        　</div>
         <% else %>
           <button class="dropdown-item" type="button"><%= link_to '新規登録', new_user_registration_path %></button>
           <button class="dropdown-item" type="button"><%= link_to 'ログイン', new_user_session_path %></button>

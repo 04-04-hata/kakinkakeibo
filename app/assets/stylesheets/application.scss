@@ -16,6 +16,9 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+//ここからGoogleフォント
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@500&family=Kosugi+Maru&family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@700&display=swap');
 
 html {
   height: 100%;
@@ -24,10 +27,12 @@ html {
 body {
   height: 100%;
   margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 #content{
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -57,6 +62,7 @@ h2{
 //navbarで左はサイトのタイトルリンク(課金家計簿)で、右はログイン関係のリンクやドロップダウンメニューで分けている
 .left{
   float:left;
+  font-family: 'Kaisei Decol', serif;
 }
 
 .right{
@@ -64,6 +70,7 @@ h2{
   display:flex;
 }
 
+//現在ログインているユーザーの名前を出す所
 .user_name{
   margin: 0 150px 0 10px;
 }
@@ -90,5 +97,39 @@ h2{
 .kakinkakeibo{
   margin-top: 50px;
   width: 100%;
+  overflow: scroll;
+}
+
+//1075px以下から調節開始
+@media (max-width: 1075px){
+  .navbar-light{
+    height: 50px;
+  }
+
+  .right .user_name{
+    display: none;
+  }
+
+  .right .logout{
+    display: none;
+  }
+
+  .right .a{
+    display: none;
+  }
+
+  .right .search{
+    display: none;
+  }
+}
+
+@media (max-width: 150px){
+  .navbar-light{
+    height: 70px;
+  }
+
+  .list_path{
+    margin-top: 70px;
+  }
 
 }

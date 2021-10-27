@@ -1,3 +1,10 @@
 // Place all the styles related to the gacha_kakeibos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//ガチャ家計簿用フォント
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Kaisei+Decol:wght@700&display=swap');
+
+.gacha{
+  font-family: 'DotGothic16', sans-serif;
+}
