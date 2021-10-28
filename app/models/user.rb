@@ -7,5 +7,4 @@ class User < ApplicationRecord
   has_many :kakeibos, dependent: :destroy
   has_many :gacha_kaKakeibos, dependent: :destroy
   has_many :other_kakeibos, dependent: :destroy
-
 end

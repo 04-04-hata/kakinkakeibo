@@ -1,5 +1,4 @@
 class KakeibosController < ApplicationController
-
   def new
     @kakeibo = Kakeibo.new
   end
@@ -16,7 +15,6 @@ class KakeibosController < ApplicationController
     else
       render :new
     end
-
   end
 
   def index
@@ -27,11 +25,14 @@ class KakeibosController < ApplicationController
 
   def show
     @kakeibo = Kakeibo.find(params[:id])
-    #FGOっていうガチャ家計簿の分だけ目的のもの(object)と課金額(billing_amount)を取りたい
-    #FGO = kakeibos.name ガチャ家計簿 = is_kakeibo_status:true
-    @gacha_billing_amount_ranks = GachaKakeibo.where(user_id: current_user.id, kakeibo_id: params[:id]).order('billing_amount desc').limit(3)
-    @total_desc = GachaKakeibo.where(user_id: current_user.id, is_result_status: 1, kakeibo_id: params[:id]).order('total desc').limit(3)
-    @other_billing_amount_ranks = OtherKakeibo.where(user_id: current_user.id, kakeibo_id: params[:id]).order('billing_amount desc').limit(3)
+    # FGOっていうガチャ家計簿の分だけ目的のもの(object)と課金額(billing_amount)を取りたい
+    # FGO = kakeibos.name ガチャ家計簿 = is_kakeibo_status:true
+    @gacha_billing_amount_ranks = GachaKakeibo.where(user_id: current_user.id,
+                                                     kakeibo_id: params[:id]).order('billing_amount desc').limit(3)
+    @total_desc = GachaKakeibo.where(user_id: current_user.id, is_result_status: 1,
+                                     kakeibo_id: params[:id]).order('total desc').limit(3)
+    @other_billing_amount_ranks = OtherKakeibo.where(user_id: current_user.id,
+                                                     kakeibo_id: params[:id]).order('billing_amount desc').limit(3)
   end
 
   def edit
@@ -45,13 +46,11 @@ class KakeibosController < ApplicationController
     else
       render :edit
     end
-
   end
 
   private
 
   def kakeibo_params
-    params.require(:kakeibo).permit(:name,:is_kakeibo_status)
+    params.require(:kakeibo).permit(:name, :is_kakeibo_status)
   end
-
 end

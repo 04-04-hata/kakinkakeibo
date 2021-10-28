@@ -59,15 +59,15 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'bootstrap', '~>4.5'
+gem 'devise'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'jquery-rails'
+gem 'kaminari', '~>1.2.1'
+gem 'pry-byebug'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'kaminari','~>1.2.1'
-gem 'bootstrap','~>4.5'
-gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.13'
-gem 'devise'
-gem 'pry-byebug'
 
 gem 'dotenv-rails'
 group :production do
