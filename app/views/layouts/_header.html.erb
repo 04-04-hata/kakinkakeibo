@@ -15,7 +15,7 @@
     <% if user_signed_in? %>
         <div class="search">
             <%= form_with url: search_path, method: :get, local: true do |f| %>
-              目的の物を入力して下さい<%= f.text_field 'search[value]', :placeholder => "例:エレシュキガル" %>
+              <%= f.text_field 'search[value]', :placeholder => "例:エレシュキガル" %>
               <%= f.select 'search[model]', options_for_select({"ガチャ家計簿" => "gachakakeibo", "その他家計簿" => "otherkakeibo"}) %>
               <%= f.submit :"検索" %>
             <% end %>
@@ -34,9 +34,10 @@
           <button class="dropdown-item" type="button"><%= link_to "家計簿一覧", kakeibos_path %></button>
           <button class="dropdown-item" type="button"><%= link_to "家計簿登録", new_kakeibo_path %></button>
           <button class="dropdown-item" type="button"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %></button>
-          <div class="dropdown_search">
+          <div class="dropdownsearch">
             <%= form_with url: search_path, method: :get, local: true do |f| %>
-              目的の物を入力して下さい<%= f.text_field 'search[value]', :placeholder => "例:エレシュキガル" %>
+              目的の物を入力して下さい
+              <%= f.text_field 'search[value]', :placeholder => "例:エレシュキガル" %>
               <%= f.select 'search[model]', options_for_select({"ガチャ家計簿" => "gachakakeibo", "その他家計簿" => "otherkakeibo"}) %>
               <%= f.submit :"検索" %>
             <% end %>

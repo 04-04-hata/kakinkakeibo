@@ -72,7 +72,7 @@ h2{
 
 //現在ログインているユーザーの名前を出す所
 .user_name{
-  margin: 0 150px 0 10px;
+  margin: 0 10px 0 10px;
 }
 
 //ログイン関係のリンク
@@ -98,6 +98,11 @@ h2{
   margin-top: 50px;
   width: 100%;
   overflow: scroll;
+}
+
+//ガチャ家計簿一覧やその他家計簿一覧用の説明の為のdivclass
+.list_explanation{
+  margin: 10px;
 }
 
 //1075px以下から調節開始
