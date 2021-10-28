@@ -28,9 +28,9 @@
       </div>
       <div id="is_result_status">
         <p>結果</p>
-        <%= f.radio_button :is_result_status, true %>
+        <%= f.radio_button :is_result_status, true, onclick: "buttonClick()" %>
         <%= f.label :is_result_status, '当選',  value: true %>
-        <%= f.radio_button :is_result_status, false %>
+        <%= f.radio_button :is_result_status, false, onclick: "buttonClick()" %>
         <%= f.label :is_result_status, '落選', value: false %>
       </div>
       <div id="winning_count">
