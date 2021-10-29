@@ -12,6 +12,7 @@
 このサイトの使用方法
 1. まず家計簿名と家計簿の種類で、ガチャ家計簿かその他家計簿かを選び、登録ボタンを押します。<br>
 (ガチャ家計簿:ソーシャルゲームのガチャ専用の家計簿)<br>
+(その他家計簿:ソーシャルゲーム以外の家計簿)<br>
 2. 家計簿が出来たら、プルダウンメニューで記述対象の家計簿を選び、必要事項を入力します。
 3. 必要事項を入力し、記述ボタンを押すと家計簿の完成です!
 
@@ -37,9 +38,9 @@
 - ソーシャルゲームで目当てのものが手に入ったか手に入らなかったかをまとめる時
 
 ## 設計書
-ER図:https://drive.google.com/file/d/1kQg6xT_iqpva6QzD6eJw2tdY4ojNDe_6/view?usp=sharing<br>
-アプリケーション設計書:https://docs.google.com/spreadsheets/d/1mG2Pdz4GdaVTIWwSvRs4qlMj4rc5szCVk76ZUsV05cw/edit?usp=sharing<br>
-テーブル定義書:https://docs.google.com/spreadsheets/d/1ylvTBm1nlZFAkTMXCDH3LGN8HTSnX8RR_QdQMCA-Irw/edit?usp=sharing
+- ER図:https://drive.google.com/file/d/1kQg6xT_iqpva6QzD6eJw2tdY4ojNDe_6/view?usp=sharing
+- アプリケーション設計書:https://docs.google.com/spreadsheets/d/1mG2Pdz4GdaVTIWwSvRs4qlMj4rc5szCVk76ZUsV05cw/edit?usp=sharing
+- テーブル定義書:https://docs.google.com/spreadsheets/d/1ylvTBm1nlZFAkTMXCDH3LGN8HTSnX8RR_QdQMCA-Irw/edit?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1GhxrJNq3oXtgC6Fnnb1lrTeCswhiAG2gUM9WY9MkIYk/edit?usp=sharing
