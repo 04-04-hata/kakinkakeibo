@@ -38,9 +38,12 @@
 - ソーシャルゲームで目当てのものが手に入ったか手に入らなかったかをまとめる時
 
 ## 設計書
-- ER図:https://drive.google.com/file/d/1kQg6xT_iqpva6QzD6eJw2tdY4ojNDe_6/view?usp=sharing
-- アプリケーション設計書:https://docs.google.com/spreadsheets/d/1mG2Pdz4GdaVTIWwSvRs4qlMj4rc5szCVk76ZUsV05cw/edit?usp=sharing
-- テーブル定義書:https://docs.google.com/spreadsheets/d/1ylvTBm1nlZFAkTMXCDH3LGN8HTSnX8RR_QdQMCA-Irw/edit?usp=sharing
+ER図<br>
+https://drive.google.com/file/d/1kQg6xT_iqpva6QzD6eJw2tdY4ojNDe_6/view?usp=sharing<br>
+アプリケーション設計書<br>
+https://docs.google.com/spreadsheets/d/1mG2Pdz4GdaVTIWwSvRs4qlMj4rc5szCVk76ZUsV05cw/edit?usp=sharing<br>
+テーブル定義書<br>
+https://docs.google.com/spreadsheets/d/1ylvTBm1nlZFAkTMXCDH3LGN8HTSnX8RR_QdQMCA-Irw/edit?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1GhxrJNq3oXtgC6Fnnb1lrTeCswhiAG2gUM9WY9MkIYk/edit?usp=sharing
