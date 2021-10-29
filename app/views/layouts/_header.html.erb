@@ -14,7 +14,7 @@
     <% end %>
     <% if user_signed_in? %>
         <div class="search">
-            目的のものを入力して下さい<%= form_with url: search_path, method: :get, local: true do |f| %>
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
               <%= f.text_field 'search[value]', :placeholder => "例:エレシュキガル" %>
               <%= f.select 'search[model]', options_for_select({"ガチャ家計簿" => "gachakakeibo", "その他家計簿" => "otherkakeibo"}) %>
               <%= f.submit :"検索" %>
